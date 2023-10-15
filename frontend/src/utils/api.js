@@ -90,15 +90,15 @@ class Api {
 }
 
 export const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-65',
+    baseUrl: 'http://api.yarzav.nomoredomainsrocks.ru',
     headers: {
-        authorization: 'e4e7d31e-adbb-40d6-b9b1-467496d1a1d0',
+        "Authorization" : `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json"
     }
 });
 
 export const userApi = new Api({
-    baseUrl: "https://auth.nomoreparties.co",
+    baseUrl: "http://api.yarzav.nomoredomainsrocks.ru",
     headers: {
         "Authorization" : `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json"
@@ -107,7 +107,7 @@ export const userApi = new Api({
 
 
 export const authorisationApi = new Api({
-    baseUrl: "https://auth.nomoreparties.co",
+    baseUrl: "http://api.yarzav.nomoredomainsrocks.ru",
     headers: {
         "Content-Type": "application/json" 
     }
