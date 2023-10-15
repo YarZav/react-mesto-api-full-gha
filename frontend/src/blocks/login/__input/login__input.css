@@ -1,0 +1,19 @@
+.login__input {
+    margin: 0 auto 0 auto;
+    height: 27px;
+    width: 358px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #cccccc;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #cccccc;
+    outline: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .login__input {
+        width: 260px;
+    }
+}

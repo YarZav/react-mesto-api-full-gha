@@ -1,0 +1,7 @@
+.element__like {
+    display: flex;
+    flex-direction: column;
+    column-gap: 3px;
+    margin: 0;
+    padding: 0;
+}

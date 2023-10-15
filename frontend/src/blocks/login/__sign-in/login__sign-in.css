@@ -1,0 +1,17 @@
+.login__sign-in {
+    margin: 15px auto 80px auto;
+    height: 17px;
+    width: 358px;
+    border: none;
+    color: #ffffff;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media screen and (max-width: 1024px) {
+    .login__sign-in {
+        width: 260px;
+    }
+}

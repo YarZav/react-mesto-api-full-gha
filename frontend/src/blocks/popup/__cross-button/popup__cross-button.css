@@ -1,0 +1,24 @@
+.popup__cross-button {
+    position: absolute;
+    margin: 0;
+    top: -40px;
+    right: -40px;
+    width: 32px;
+    height: 32px;
+    background-image: url("../../../images/cross_button.svg");
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .popup__cross-button {
+        top: -36px;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        background-size: 20px 20px;
+    }
+}

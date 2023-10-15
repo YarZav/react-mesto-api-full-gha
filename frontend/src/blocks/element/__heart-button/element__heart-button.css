@@ -1,0 +1,12 @@
+.element__heart-button {
+    margin: 5px 0 0 0;
+    width: 23px;
+    height: 19px;
+    background-image: url("../../../images/heart_button.svg");
+    background-size: 22px 19px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    flex-shrink: 0;
+}

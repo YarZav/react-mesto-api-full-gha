@@ -1,0 +1,15 @@
+.popup__title_signup {
+    margin: 34px 36px auto 36px;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 29px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+    .popup__title {
+        margin: 26px 22px auto 22px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
