@@ -168,6 +168,7 @@ function App() {
 
     api.addCard(card.name, card.link)
       .then((newCard) => {
+        console.log(newCard.data);
         setCards([newCard.data, ...cards]);
         closeAllPopups();
       })
@@ -208,6 +209,7 @@ function App() {
     .then(([emailUserInfo, initialUserInfo, initialCards]) => {
       setEmail(emailUserInfo.data.email)
       setCurrentUser(initialUserInfo.data);
+      console.log(initialCards.data);
       setCards(initialCards.data);
     }) 
     .catch((error) => {
