@@ -134,7 +134,8 @@ function App() {
 
     api.setUserInfo(user.name, user.about)
       .then((newUser) => {
-        setCurrentUser(newUser);
+        console.log(newUser);
+        setCurrentUser(newUser.data);
         closeAllPopups();
       })
       .catch(error => {
