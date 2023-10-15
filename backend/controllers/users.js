@@ -60,6 +60,6 @@ module.exports.patchUsersMeAvatar = (req, res, next) => {
   const { avatar } = req.body;
   User.findByIdAndUpdate(id, { avatar }, { new: true, runValidators: true })
     .orFail()
-    .then(() => res.send({ avatar }))
+    .then((user) => res.send({ data: user }))
     .catch(next);
 };

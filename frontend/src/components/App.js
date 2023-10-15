@@ -134,7 +134,6 @@ function App() {
 
     api.setUserInfo(user.name, user.about)
       .then((newUser) => {
-        console.log(newUser);
         setCurrentUser(newUser.data);
         closeAllPopups();
       })
@@ -151,7 +150,7 @@ function App() {
 
     api.setAvatar(avatar)
       .then((newUser) => {
-        setCurrentUser(newUser);
+        setCurrentUser(newUser.data);
         closeAllPopups();
       })
       .catch(error => {
@@ -169,7 +168,7 @@ function App() {
 
     api.addCard(card.name, card.link)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.data, ...cards]);
         closeAllPopups();
       })
       .catch(error => {
