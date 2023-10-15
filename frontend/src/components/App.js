@@ -207,8 +207,8 @@ function App() {
     ]) 
     .then(([emailUserInfo, initialUserInfo, initialCards]) => {
       setEmail(emailUserInfo.data.email)
-      setCurrentUser(initialUserInfo);
-      setCards(initialCards);
+      setCurrentUser(initialUserInfo.data);
+      setCards(initialCards.data);
     }) 
     .catch((error) => {
       console.log(error);

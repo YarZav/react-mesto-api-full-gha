@@ -49,7 +49,7 @@ module.exports.createUser = (req, res, next) => {
 
 module.exports.patchUsersMe = (req, res, next) => {
   const { name, about } = req.body;
-  User.findByIdAndUpdate(req.user._id, { name, about }, { new: true, runValidators: true })
+  User.findByIdAndUpdate(req.user._id, { name, about, avatar }, { new: true, runValidators: true })
     .orFail()
     .then(() => res.send({ name, about }))
     .catch(next);
