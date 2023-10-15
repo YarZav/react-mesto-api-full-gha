@@ -7,6 +7,12 @@ const auth = require('../middlewares/auth');
 const { signinRouteValidation, signupRouteValidation } = require('../validators/sign/sign');
 const DocumentNotFoundError = require('../errors/DocumentNotFoundError');
 
+routes.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 routes.post('/signin', signinRouteValidation, login);
 routes.post('/signup', signupRouteValidation, createUser);
 
