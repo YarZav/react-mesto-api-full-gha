@@ -101,7 +101,7 @@ export const userApi = new Api({
     baseUrl: "http://api.yarzav.nomoredomainsrocks.ru",
     headers: {
         "Authorization" : `Bearer ${localStorage.getItem("jwt")}`,
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/json"
     }
 });
 
@@ -109,6 +109,6 @@ export const userApi = new Api({
 export const authorisationApi = new Api({
     baseUrl: "http://api.yarzav.nomoredomainsrocks.ru",
     headers: {
-        "Content-Type": "application/x-www-form-urlencoded" 
+        "Content-Type": "application/json"
     }
 });
