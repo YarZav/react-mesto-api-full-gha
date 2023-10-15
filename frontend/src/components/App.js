@@ -82,7 +82,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(like => like._id === currentUser._id);
+    const isLiked = card.likes.includes(currentUser._id);
 
     if (isLiked) {
       api.deleteCardLike(card._id)
@@ -168,7 +168,6 @@ function App() {
 
     api.addCard(card.name, card.link)
       .then((newCard) => {
-        console.log(newCard.data);
         setCards([newCard.data, ...cards]);
         closeAllPopups();
       })
@@ -209,7 +208,6 @@ function App() {
     .then(([emailUserInfo, initialUserInfo, initialCards]) => {
       setEmail(emailUserInfo.data.email)
       setCurrentUser(initialUserInfo.data);
-      console.log(initialCards.data);
       setCards(initialCards.data);
     }) 
     .catch((error) => {
