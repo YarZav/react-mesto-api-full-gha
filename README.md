@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 84.201.174.72
 
-Frontend https://...
+Frontend yarzav.nomoredomainsrocks.ru
 
-Backend https://...
+Backend api.yarzav.nomoredomainsrocks.ru
