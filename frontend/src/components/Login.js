@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { authorisationApi } from '../utils/api';
+import { unauthorisedApi } from '../utils/api';
 
 function Login(props) {
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ function Login(props) {
 
         setIsLoading(true)
 
-        authorisationApi.signIn(email, password)
+        unauthorisedApi.signIn(email, password)
         .then(result => {
             localStorage.setItem('jwt', result.token);
             navigate("/");

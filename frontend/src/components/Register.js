@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { authorisationApi } from '../utils/api';
+import { unauthorisedApi } from '../utils/api';
 
 function Register(props) {
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ function Register(props) {
 
         setIsLoading(true)
 
-        authorisationApi.signUp(email, password)
+        unauthorisedApi.signUp(email, password)
         .then(result => {
             navigate("/sign-in");
             handleSignUpResult(true);

@@ -16,7 +16,7 @@ import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
 
-import { api, userApi } from '../utils/api';
+import { authorisedApi } from '../utils/api';
 
 import CurrentUserContext from '../contexts/CurrentUserContext';
 import InfoTooltip from './InfoTooltip';
@@ -85,7 +85,7 @@ function App() {
     const isLiked = card.likes.includes(currentUser._id);
 
     if (isLiked) {
-      api.deleteCardLike(card._id)
+      authorisedApi.deleteCardLike(card._id)
         .then((newCard) => {
           setCards((state) => state.map((oldCard) => oldCard._id === card._id ? newCard : oldCard));
         })
@@ -93,7 +93,7 @@ function App() {
           console.log(error);
         });
     } else {
-      api.setCardLike(card._id)
+      authorisedApi.setCardLike(card._id)
         .then((newCard) => {
           setCards((state) => state.map((oldCard) => oldCard._id === card._id ? newCard : oldCard));
         })
@@ -113,7 +113,7 @@ function App() {
 
     setIsDeletePlaceLoading(true);
 
-    api.deleteCard(deletedCard._id)
+    authorisedApi.deleteCard(deletedCard._id)
       .then(() => {
         const newCards = cards.filter(oldCard => oldCard._id !== deletedCard._id);
         setCards(newCards);
@@ -132,7 +132,7 @@ function App() {
   function handleUpdateUser(user) {
     setIsEditProfileLoading(true);
 
-    api.setUserInfo(user.name, user.about)
+    authorisedApi.setUserInfo(user.name, user.about)
       .then((newUser) => {
         setCurrentUser(newUser.data);
         closeAllPopups();
@@ -148,7 +148,7 @@ function App() {
   function handleUpdateAvatar(avatar) {
     setIsEditAvatarLoading(true);
 
-    api.setAvatar(avatar)
+    authorisedApi.setAvatar(avatar)
       .then((newUser) => {
         setCurrentUser(newUser.data);
         closeAllPopups();
@@ -166,7 +166,7 @@ function App() {
   function handleAddPlaceSubmit(card) {
     setIsAddPlaceLoading(true);
 
-    api.addCard(card.name, card.link)
+    authorisedApi.addCard(card.name, card.link)
       .then((newCard) => {
         setCards([newCard.data, ...cards]);
         closeAllPopups();
@@ -201,9 +201,9 @@ function App() {
 
   function fetchInitialData() {
     Promise.all([
-      userApi.getUserInfo(),
-      api.getUserInfo(),
-      api.getInitialCards(),
+      authorisedApi.getUserInfo(),
+      authorisedApi.getUserInfo(),
+      authorisedApi.getInitialCards(),
     ]) 
     .then(([emailUserInfo, initialUserInfo, initialCards]) => {
       setEmail(emailUserInfo.data.email)

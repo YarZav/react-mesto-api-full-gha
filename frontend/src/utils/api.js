@@ -89,15 +89,7 @@ class Api {
     }
 }
 
-export const api = new Api({
-    baseUrl: 'http://api.yarzav.nomoredomainsrocks.ru',
-    headers: {
-        "Authorization" : `Bearer ${localStorage.getItem("jwt")}`,
-        "Content-Type": "application/json"
-    }
-});
-
-export const userApi = new Api({
+export const authorisedApi = new Api({
     baseUrl: "http://api.yarzav.nomoredomainsrocks.ru",
     headers: {
         "Authorization" : `Bearer ${localStorage.getItem("jwt")}`,
@@ -106,7 +98,7 @@ export const userApi = new Api({
 });
 
 
-export const authorisationApi = new Api({
+export const unauthorisedApi = new Api({
     baseUrl: "http://api.yarzav.nomoredomainsrocks.ru",
     headers: {
         "Content-Type": "application/json"
