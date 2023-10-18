@@ -90,7 +90,7 @@ class Api {
 }
 
 export const authorisedApi = new Api({
-    baseUrl: "http://api.yarzav.nomoredomainsrocks.ru",
+    baseUrl: "https://api.yarzav.nomoredomainsrocks.ru",
     headers: {
         "Authorization" : `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json"
@@ -99,7 +99,7 @@ export const authorisedApi = new Api({
 
 
 export const unauthorisedApi = new Api({
-    baseUrl: "http://api.yarzav.nomoredomainsrocks.ru",
+    baseUrl: "https://api.yarzav.nomoredomainsrocks.ru",
     headers: {
         "Content-Type": "application/json"
     }
