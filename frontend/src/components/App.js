@@ -87,7 +87,7 @@ function App() {
     if (isLiked) {
       authorisedApi.deleteCardLike(card._id)
         .then((newCard) => {
-          setCards((state) => state.map((oldCard) => oldCard._id === card._id ? newCard : oldCard));
+          setCards((state) => state.map((oldCard) => oldCard._id === newCard.data._id ? newCard.data : oldCard));
         })
         .catch(error => {
           console.log(error);
@@ -95,7 +95,7 @@ function App() {
     } else {
       authorisedApi.setCardLike(card._id)
         .then((newCard) => {
-          setCards((state) => state.map((oldCard) => oldCard._id === card._id ? newCard : oldCard));
+          setCards((state) => state.map((oldCard) => oldCard._id === newCard.data._id ? newCard.data : oldCard));
         })
         .catch(error => {
           console.log(error);
