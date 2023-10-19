@@ -202,7 +202,6 @@ function App() {
   function fetchInitialData() {
     Promise.all([
       authorisedApi.getUserInfo(),
-      authorisedApi.getUserInfo(),
       authorisedApi.getInitialCards(),
     ]) 
     .then(([emailUserInfo, initialUserInfo, initialCards]) => {
