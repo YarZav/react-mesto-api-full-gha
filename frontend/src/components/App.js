@@ -67,11 +67,11 @@ function App() {
   }
 
   function handleSignInResult(isCorrect) {
-    setIsInfoTooltipCorrect(isCorrect);
-    setIsInfoTooltipOpen(true);
-
     if (isCorrect) {
       fetchInitialData();
+    } else {
+      setIsInfoTooltipCorrect(isCorrect);
+      setIsInfoTooltipOpen(true);  
     }
   }
 
