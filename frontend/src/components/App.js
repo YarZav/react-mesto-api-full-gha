@@ -205,11 +205,11 @@ function App() {
     }
 
     Promise.all([
-      authorisedApi.getInitialCards(),
-      authorisedApi.getUserInfo()
+      authorisedApi.getUserInfo(),
+      authorisedApi.getInitialCards()
     ]) 
-    .then(([emailUserInfo, initialUserInfo, initialCards]) => {
-      setEmail(emailUserInfo.data.email)
+    .then(([initialUserInfo, initialCards]) => {
+      setEmail(initialUserInfo.data.email)
       setCurrentUser(initialUserInfo.data);
       setCards(initialCards.data);
     }) 
