@@ -3,10 +3,21 @@ class Api {
 
     constructor(options) {
         this._baseUrl = options.baseUrl;
-        this._headers = options.headers;
+        this._authorised = options.authorised;
     }
 
     // Private
+
+    _makeHeaders() {
+        if (this._authorised) {
+            return {
+                "Authorization" : `Bearer ${localStorage.getItem("jwt")}`,
+                "Content-Type": "application/json"
+            }
+        } else {
+            return { "Content-Type": "application/json" }
+        }
+    }
 
     _makeRequest(method, path, data = { }) {
         const reqeust = (Object.keys(data).length === 0)
@@ -20,7 +31,7 @@ class Api {
             `${this._baseUrl}/${path}`, 
             {
                 method: method,
-                headers: this._headers,
+                headers: this._makeHeaders(),
                 body: JSON.stringify(data)
             }
         )
@@ -31,7 +42,7 @@ class Api {
             `${this._baseUrl}/${path}`, 
             {
                 method: method,
-                headers: this._headers
+                headers: this._makeHeaders()
             }
         )
     }
@@ -91,16 +102,11 @@ class Api {
 
 export const authorisedApi = new Api({
     baseUrl: "https://api.yarzav.nomoredomainsrocks.ru",
-    headers: {
-        "Authorization" : `Bearer ${localStorage.getItem("jwt")}`,
-        "Content-Type": "application/json"
-    }
+    authorised: true
 });
 
 
 export const unauthorisedApi = new Api({
     baseUrl: "https://api.yarzav.nomoredomainsrocks.ru",
-    headers: {
-        "Content-Type": "application/json"
-    }
+    authorised: false
 });

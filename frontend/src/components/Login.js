@@ -30,8 +30,8 @@ function Login(props) {
         unauthorisedApi.signIn(email, password)
         .then(result => {
             localStorage.setItem('jwt', result.token);
-            navigate("/");
             handleSignInResult(true);
+            navigate("/");
         })
         .catch(error => {
             console.log(error);

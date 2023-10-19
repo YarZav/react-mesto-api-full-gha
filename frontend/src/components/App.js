@@ -200,6 +200,10 @@ function App() {
   // Жизненный цикл реакт компонента
 
   function fetchInitialData() {
+    if (!localStorage.getItem("jwt")) {
+      return;
+    }
+
     Promise.all([
       authorisedApi.getInitialCards(),
       authorisedApi.getUserInfo()
@@ -218,9 +222,7 @@ function App() {
   }
 
   React.useEffect(() => {
-    if (localStorage.getItem("jwt")) {
-      fetchInitialData();
-    }
+    fetchInitialData();
   }, []);
 
   React.useEffect(() => {
