@@ -38,13 +38,21 @@ module.exports.deleteCard = (req, res, next) => {
 module.exports.putCardLike = (req, res, next) => {
   Card.findByIdAndUpdate(req.params.id, { $addToSet: { likes: req.user._id } }, { new: true })
     .orFail()
-    .then((card) => res.status(200).send(card))
+    .then((newCard) => {
+      Card.findById(newCard.id)
+        .populate('owner')
+        .then((card) => res.status(200).send({ data: card }));
+    })
     .catch(next);
 };
 
 module.exports.deleteCardLike = (req, res, next) => {
   Card.findByIdAndUpdate(req.params.id, { $pull: { likes: req.user._id } }, { new: true })
     .orFail()
-    .then((card) => res.status(200).send(card))
+    .then((newCard) => {
+      Card.findById(newCard.id)
+        .populate('owner')
+        .then((card) => res.status(200).send({ data: card }));
+    })
     .catch(next);
 };
