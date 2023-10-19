@@ -201,8 +201,8 @@ function App() {
 
   function fetchInitialData() {
     Promise.all([
-      authorisedApi.getUserInfo(),
       authorisedApi.getInitialCards(),
+      authorisedApi.getUserInfo()
     ]) 
     .then(([emailUserInfo, initialUserInfo, initialCards]) => {
       setEmail(emailUserInfo.data.email)
