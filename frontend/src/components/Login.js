@@ -31,6 +31,7 @@ function Login(props) {
         .then(result => {
             localStorage.setItem('jwt', result.token);
             navigate("/");
+            handleSignInResult(true);
         })
         .catch(error => {
             console.log(error);
